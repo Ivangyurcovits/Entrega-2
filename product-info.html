@@ -23,21 +23,47 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      
+
       <div id="info-user" style="display: none;">
         <p id="user" style="color:aliceblue ;">
         </p>
-        <button id="salir" >Salir</button>
+        <button id="salir">Salir</button>
       </div>
-      
+
     </div>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 13/09/2020) y Entrega 4 (Fecha de entrega: 20/09/2020).</p>
+    <h1>Información de Planta</h1>
+    <nav>
+      <div id="info-user" style="display: none;">
+        <p id="user" style="color: black;">
+        </p><br>
+        <button id="salir">Salir</button>
+      </div>
+    </nav>
+    <div class="productInfo">
+      <div id="content"></div>
       <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+      <div id="images" class="img"></div>
+      <hr>
+      <a href="products.html">Volver a la lista de productos</a>
+      <hr>
+      <p>Comentarios:</p>
+      <div id="comments"></div>
+      <div id="newComment" style="display:none">
+        <p>¡Dejanos tu comentario!</p>
+        <textarea id="newComm" cols="30" rows="10"></textarea>
+        <p>Califica el producto:</p>
+        <select id="newCal">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <br><br>
+        <button id="sendComm">Enviar</button>
+      </div>
     </div>
   </div>
   <footer class="text-muted">
