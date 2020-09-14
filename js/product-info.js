@@ -28,7 +28,7 @@ function showProduct(product, commentArray) {
         for (let i = comment.score + 1; i <= 5; i++) {
             puntos += '<span class="fa fa-star"></span>';
         }
-        comentarios += '<sub>' + comment.dataTime + '</sub><br>';
+        comentarios += '<sub>' + comment.dateTime + '</sub><br>';
         comentarios += '<div style="text-align: right;">' + puntos + '</div><br><hr>';
 
 
@@ -48,13 +48,14 @@ document.addEventListener("DOMContentLoaded", function (e) {
     }
     document.getElementById("sendComm").addEventListener("click", function () {
         let now = new Date();
-        let dateTime = now.getFullYear() + '/' + now.getMonth() + '/' + now.getDate();
-        dateTime = now.getHours() + ':' + now.getMinutes();
+        let dateTime = now.getFullYear() + '-' + now.getMonth()+1 + '-' + now.getDate() +'   ';
+        dateTime += now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
 
         let newComment = {
-            score: parseInt(document.getElementById('newCal').value),
+            score: getRating(),// parseInt(document.getElementById('newCal').value),
             description: document.getElementById('newComm').value,
-            user: JSON.parse(localStorage.getItem('User-Logged')).email
+            user: JSON.parse(localStorage.getItem('User-Logged')).email,
+            dateTime: dateTime
         };
         commentArray.push(newComment);
         showProduct(product, commentArray);

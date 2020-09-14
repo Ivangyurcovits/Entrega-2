@@ -13,6 +13,31 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <style>
+    .star-rating {
+      direction: rtl;
+      display: inline-block;
+      padding: 20px
+    }
+
+    .star-rating input[type=radio] {
+      display: none
+    }
+
+    .star-rating label {
+      color: rgb(133, 142, 192);
+      font-size: 50px;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .star-rating label:hover,
+    .star-rating label:hover~label,
+    .star-rating input[type=radio]:checked~label {
+      color: #ffbf00
+    }
+  </style>
 </head>
 
 <body>
@@ -53,16 +78,9 @@
       <div id="newComment" style="display:none">
         <p>¡Dejanos tu comentario!</p>
         <textarea id="newComm" cols="30" rows="10"></textarea>
-        <p>Califica el producto:</p>
-        <select id="newCal">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-        <br><br>
+        <div id="stars"></div>
         <button id="sendComm">Enviar</button>
+
       </div>
     </div>
   </div>
@@ -87,6 +105,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
+  <script src="js/stars.js"></script>
 </body>
 
 </html>
