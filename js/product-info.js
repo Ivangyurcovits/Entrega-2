@@ -2,9 +2,9 @@ var product = {};
 var commentArray = [];
 var productsArray = [];
 
-function showRelatedProducts(arrayProductsList, arrayRelatedProducts){
+function showRelatedProducts(arrayProductsList, arrayRelatedProducts) {
     let content = `<hr>`;
-    arrayRelatedProducts.forEach(function(i){
+    arrayRelatedProducts.forEach(function (i) {
         content += '<img class="img" src= "' + arrayProductsList[i].imgSrc + '" height="100px"  HSPACE="1" VSPACE="1" alt=""><br>';
         content += '<strong>' + arrayProductsList[i].name + '</strong><br>';
         content += arrayProductsList[i].currency + arrayProductsList[i].cost + '<br>';
@@ -16,18 +16,11 @@ function showRelatedProducts(arrayProductsList, arrayRelatedProducts){
 function showProduct(product, commentArray) {
 
     let info = "";
-    let imgs = "";
     let comentarios = "<hr>";
 
     info += '<h3>' + product.name + '</h3>';
     info += '<strong>' + product.currency + product.cost + '</strong><br>';
     info += '<i>' + product.description + '</i> <br>';
-
-    imgs += '<img class="img" src= "' + product.images[0] + '" height="200px"  HSPACE="8" VSPACE="8" alt="">';
-    imgs += '<img class="img" src= "' + product.images[1] + '" height="200px"  HSPACE="8" VSPACE="8" alt="">';
-    imgs += '<img class="img" src= "' + product.images[2] + '" height="200px"  HSPACE="8" VSPACE="8" alt="">';
-    imgs += '<img class="img" src= "' + product.images[3] + '" height="200px"  HSPACE="8" VSPACE="8" alt="">';
-    imgs += '<img class="img" src= "' + product.images[4] + '" height="200px"  HSPACE="8" VSPACE="8" alt="">';
 
 
     commentArray.forEach(function (comment) {
@@ -45,8 +38,15 @@ function showProduct(product, commentArray) {
 
 
     });
+
+
+    document.getElementById("img1").src = product.images[0];
+    document.getElementById("img2").src = product.images[1];
+    document.getElementById("img3").src = product.images[2];
+    document.getElementById("img4").src = product.images[3];
+    document.getElementById("img5").src = product.images[4];
+
     document.getElementById("content").innerHTML = info;
-    document.getElementById("images").innerHTML = imgs;
     document.getElementById("comments").innerHTML = comentarios;
 
 
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     }
     document.getElementById("sendComm").addEventListener("click", function () {
         let now = new Date();
-        let dateTime = now.getFullYear() + '-' + now.getMonth()+1 + '-' + now.getDate() +'   ';
+        let dateTime = now.getFullYear() + '-' + now.getMonth() + 1 + '-' + now.getDate() + '   ';
         dateTime += now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
 
         let newComment = {
@@ -86,8 +86,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     });
 
-    getJSONData(PRODUCTS_URL).then(function (resultObj){
-        if (resultObj.status === "ok"){
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
             productsArray = resultObj.data;
             showRelatedProducts(productsArray, product.relatedProducts);
         }
