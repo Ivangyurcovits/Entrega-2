@@ -40,13 +40,14 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <!----------------------------------Desplegable-------------------------------------------->
+      <!----------------------------------Desplegable-------------------------------------------->
       <div class="dropdown" id="info-user" style="display: none;">
-        <button id="user" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+        <button id="user" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false"></button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
           <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-          <button id="salir" class="dropdown-item" >Salir</button>
+          <button id="salir" class="dropdown-item">Salir</button>
         </div>
       </div>
       <!--------------------------------------------------------------------------------------------->
@@ -54,148 +55,161 @@
   </nav>
   <h1>Carrito</h1>
 
-  <div class="buy" style='margin-right: 30mm; margin-left: 30mm; margin-bottom: 10mm;'>
+  <div id="buy" class="buy" style='margin-right: 30mm; margin-left: 30mm; margin-bottom: 10mm;'>
     <br>
 
     <table class="table">
-        <thead>
-            <tr>
-                <th></th>
-                <th colspan="3">Producto</th>
-                <th>Moneda</th>
-                <th>Precio</th>
-                <th>Cantidad</th>
-                <th>SubTotal (UYU)</th>
-            </tr>
-        </thead>
-        <tbody id="list"> </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="7">Precio total</td>
-                <td id="total"></td>
-            </tr>
-        </tfoot>
+      <thead>
+        <tr>
+          <th></th>
+          <th colspan="3">Producto</th>
+          <th>Moneda</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>SubTotal (UYU)</th>
+        </tr>
+      </thead>
+      <tbody id="list"> </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="7">Precio total</td>
+          <td id="total"></td>
+        </tr>
+      </tfoot>
     </table>
 
     <hr>
-    <h4>Envío</h4>
-    <div>
-        <input id="montevideo" type="radio" name="shipping" value="50" checked required>
-        <label for="montevideo">Montevideo: $ 50</label><br>
-        <input id="sur" type="radio" name="shipping" value="150">
-        <label for="sur">Sur del Río Negro: $ 150</label><br>
-        <input id="norte" type="radio" name="shipping" value="500">
-        <label for="norte">Norte del Río Negro: $ 500</label><br>
-    </div>
-    <br>
+    
+    <form action="index.html" id="needs-validation" novalidate>
+      <div>
+        <h4>Datos del Comprador:</h4>
+        <input type="text" class="form-control" placeholder="País" required>
+        <div class="invalid-feedback">
+          Por favor ingresa tu país
+        </div>
+        <br>
+        <input type="text" class="form-control" placeholder="Calle" required>
+        <div class="invalid-feedback">
+          Por favor ingresa tu calle.
+        </div>
+        <br>
+        <input type="text" class="form-control" placeholder="Número de puerta" required>
+        <div class="invalid-feedback">
+          Por favor ingresa tu número de puerta.
+        </div>
+        <br>
+        <input type="text" class="form-control" placeholder="Esquina" required>
+        <div class="invalid-feedback">
+          Por favor ingresa tu Esquina.
+        </div>
+        <br>
+      </div>
 
-    <table class="table">
+      <h4>Envío</h4>
+      <div>
+        <input id="standard" type="radio" name="shipping" value="5" checked required>
+        <label for="standard">Standard (12 a 15 días) - Costo del 5% sobre el subtotal.</label><br>
+        <input id="express" type="radio" name="shipping" value="7">
+        <label for="express">Express (5-8 días) - Costo del 7% sobre el subtotal.</label><br>
+        <input id="premium" type="radio" name="shipping" value="15">
+        <label for="premium">Premium (2-5 días) - Costo del 15% sobre el subtotal.
+        </label><br>
+      </div>
+      <br>
+
+      <button id="btnPay" class="btn btn-block btn-primary" data-toggle="modal" data-target="#modalBuy">Método de
+        pago</button>
+      <div class="pay" id="pay">
+        <br>
+      </div>
+
+
+      <!----------------------------------Modal----------------------------------------->
+      <div class="modal fade" id="modalBuy">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div id="modal-body">
+                
+                <h4>Forma de pago:</h4>
+                <input id="card" type="radio" name="wayToPay" value="1" checked="">
+                <label for="card">Tarjeta de credito</label>
+                <br>
+                <input id="bank" type="radio" name="wayToPay" value="2">
+                <label for="bank">Transferencia bancaria</label>
+                <br>
+                <div>
+                  <div id="cardDetails">
+                    <input type="number" id="numCard" placeholder="Numero de tarjeta">
+                    <input type="text" id="titularCard" placeholder="Nombre de titular">
+                    <input type="number" id="securityCard" placeholder="Código de seguridad">
+                  </div>
+                  <div id="bankDetails" class="d-none">
+                    <select id="bank">
+                      <option>BROU</option>
+                      <option>Santander</option>
+                    </select>
+                    <input  type="number" id="account" placeholder="Numero de cuenta">
+                  </div>
+
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" id="btnModal" class="btn btn-block btn-success">Confirmar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!---------------------------------------------------------------------------------->
+
+      <table class="table">
         <thead>
-            <tr>
-                <th>SubTotal</th>
-                <th>Envío</th>
-                <th>Total a pagar</th>
-            </tr>
+          <tr>
+            <th>SubTotal</th>
+            <th>Envío</th>
+            <th>Total a pagar</th>
+          </tr>
         </thead>
         <tbody id="totalShipping"> </tbody>
-    </table>
+      </table>
+      <br>
 
-    <br>
-    <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#modalBuy">Comprar</button>
-</div>
- <!----------------------------Modal---------------------------------->
- <div class="modal fade" id="modalBuy">
-  <div class="modal-dialog">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h3>Ingresa tus datos:</h3>
-          </div>
-          <div class="modal-body">
-              <form action="index.html" id="needs-validation" novalidate>
-                  <div>
-                      <h4>Datos del Comprador:</h4>
-                      <input type="text" class="form-control" placeholder="Nombre" required>
-                      <div class="invalid-feedback"></div>
-                      <div class="invalid-feedback">
-                          Por favor ingresa tu nombre
-                      </div>
-                      <br>
-                      <input type="text" class="form-control" placeholder="Apellido" required>
-                      <div class="invalid-feedback">
-                          Por favor ingresa tu apellido
-                      </div>
-                      <br>
-                  </div>
-                  <div>
-                      <h4>Datos de envío</h4>
-                      <label for="depto">Departamento</label>
-                      <select class="form-control" id="depto" required>
-                          <option value="1">Montevideo</option>
-                          <option value="2">Artigas</option>
-                          <option value="3">Canelones</option>
-                          <option value="4">Cerro largo</option>
-                          <option value="5">Colonia</option>
-                          <option value="6">Durazno</option>
-                          <option value="7">Flores</option>
-                          <option value="8">Florida</option>
-                          <option value="9">Lavalleja</option>
-                          <option value="10">Maldonado</option>
-                          <option value="11">Paysandú</option>
-                          <option value="12">Río Negro</option>
-                          <option value="13">Rivera</option>
-                          <option value="14">Rocha</option>
-                          <option value="15">Salto</option>
-                          <option value="16">San Jose</option>
-                          <option value="17">Soriano</option>
-                          <option value="18">Tacuarembó</option>
-                          <option value="19">Treinta Tres</option>
-                      </select><br>
-                      <input type="text" class="form-control" placeholder="Dirección" required>
-                      <div class="invalid-feedback">
-                          Por favor ingresa tu dirección
-                      </div>
-                      <br>
-                  </div>
-                  <div class="modal-footer">
-                      <button type="submit" class="btn btn-block btn-success">Confirmar</button>
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                  </div>
-              </form>
-          </div>
-      </div>
-  </div>
-</div>
+      <button type="submit" class="btn btn-block btn-success">Confirmar compra</button>
+    </form>
 
-<script>
 
-  document.addEventListener("DOMContentLoaded", function () {
-      let form = document.getElementById('needs-validation');
-      form.addEventListener('submit', function (event) {
+    <script>
+
+      document.addEventListener("DOMContentLoaded", function () {
+        let form = document.getElementById('needs-validation');
+        form.addEventListener('submit', function (event) {
           if (form.checkValidity() === false) {
-              event.preventDefault();
-              event.stopPropagation();
+            event.preventDefault();
+            event.stopPropagation();
           }
           form.classList.add('was-validated');
+        });
       });
-  });
 
-</script>
+    </script>
 
 
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+    <div id="spinner-wrapper">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
-  </div>
-  
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/dropzone.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/cart.js"></script>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/dropzone.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/cart.js"></script>
 </body>
 
 </html>
