@@ -38,7 +38,7 @@ function sortCost(criterio, array) {
 function showProductsList(array) {
 
     let htmlContentToAppend = "";
-    htmlContentToAppend += "<h1 align='center'>PRODUCTOS</h1><br>";
+    htmlContentToAppend += "<h1 class='col-12' align='center'>PRODUCTOS</h1><br>";
     for (let i = 0; i < array.length; i++) {
         let product = array[i];
 
@@ -48,11 +48,19 @@ function showProductsList(array) {
             if (search == undefined || product.name.toLowerCase().indexOf(search) != -1){
 
 
-                htmlContentToAppend += "<img src=" + product.imgSrc + "> <br>";
-                htmlContentToAppend += "<strong>" + product.name + "</strong> <br>";
-                htmlContentToAppend += "PRECIO:  " + product.cost + "<br>" + product.description;
-                htmlContentToAppend += "<a href='product-info.html'><button style='float: right;'>Ver producto</button></a><br><hr>"
-
+                htmlContentToAppend += `<div class="col-md-6 col-lg-4">
+                                            <div class="card">
+                                                <img class="card-img-top" style="max-width:100%; width:auto; height:auto;" src=${product.imgSrc}> <br>
+                                                <div class="card-body">
+                                                    <strong class="card-title">${product.name}</strong> <br>
+                                                    <p class="card-subtitle">PRECIO:  ${product.cost}</p>
+                                                    <p class="card-text">${product.description}</p>
+                                                </div>
+                                                <a href='product-info.html'><button class="btn btn-primary" style='float: right;'>Ver producto</button></a>
+                                            </div>
+                                            <br>
+                                        </div>
+                                        `
             }
 
 

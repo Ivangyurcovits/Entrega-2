@@ -16,66 +16,87 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
+  <div class="container-fluid">
+    <div class="row text-center align-items-center">
 
-      <a class="py-2 d-none d-md-inline-block" href="login.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-            
-      <div class="dropdown" id="info-user" style="display: none;">
-        <button id="user" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
-          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-          <button id="salir" class="dropdown-item" >Salir</button>
+      <nav class="col site-header sticky-top py-1 bg-dark">
+        <div class="row d-flex flex-column flex-md-row justify-content-between">
+          <a class="py-2 d-none d-md-inline-block col-md-3 col-lg-2" href="login.html">Inicio</a>
+          <a class="py-2 d-none d-md-inline-block col-md-3 col-lg-2" href="categories.html">Categorías</a>
+          <a class="py-2 d-none d-md-inline-block col-md-3 col-lg-2" href="products.html">Productos</a>
+          <a class="py-2 d-none d-md-inline-block col-md-3 col-lg-2" href="sell.html">Vender</a>
+
+          <div class="col-lg-4">
+            <div class="dropdown" id="info-user" style="display: none;">
+              <button id="user" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false"></button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
+                <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+                <button id="salir" class="dropdown-item">Salir</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    </div>
+    <div class="container-fluid">
+      <div class="row" id="filter-cost" style="text-align:center">
+        <div class="col-md-12 col-lg-3">
+          <div class="row align-items-center">
+            <div class="col py-3 text-center d-none d-md-inline-block">
+              <label for="price">Precio: </label><br>
+              <input class="price" type="number" placeholder="min." id="rank-min">
+              <input type="number" placeholder="max." id="rank-max"><br>
+              <button class="btn btn-light" id="filter">Filtrar</button>
+              <button class="btn btn-light" id="clean">Limpiar</button>
+            </div>
+            <div class="col py-3 text-center d-none d-md-inline-block">
+              <label for="asc">Orden: </label><br>
+              <button class="asc btn btn-light" id="sortCostAsc">Ascendente</button>
+              <button class="desc btn btn-light" id="sortCostDesc">Descendente</button>
+              <button class="btn btn-light" id="sortRelevance">Relevancia</button>
+            </div>
+            <div class="col py-3 text-center"><br>
+              <input type="text" id="search" placeholder="Búsqueda"><br><br>
+              <button class="btn btn-light" id="cleanSearch">Limpiar búsqueda</button>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-12 col-lg-9">
+          <div class="row" id="prod"> </div>
         </div>
       </div>
-
     </div>
-  </nav>
-
-  <div id="filter-cost" style="text-align:center">
-    <p><strong>Precio:</strong></p>
-    <input type="number" placeholder="min." id="rank-min">
-    <input type="number" placeholder="max." id="rank-max">
-    <button id="filter">Filtrar</button>
-    <button id="clean">Limpiar</button>
-    <br><br>
-      <label for="asc">Orden: </label>
-      <button class="asc" id="sortCostAsc">Ascendente</button>
-      <button class="desc" id="sortCostDesc">Descendente</button>
-      <button id="sortRelevance">Relevancia</button><br><br>
-      <input type="text" id="search">
-      <button id="cleanSearch">Limpiar búsqueda</button>
-
-  </div>
-
-  <div class="container p-5" id="prod">
-
-  </div>
-  <footer class="text-muted bg-light">
-    <div class="container">
-      <p class="float-right">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-    </div>
-  </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+    <div class="row">
+      <div class="col">
+        <footer class="text-muted bg-light">
+          <div class="container">
+            <p class="float-right">
+              <a href="#">Volver arriba</a>
+            </p>
+            <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+            <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+          </div>
+        </footer>
+        <div id="spinner-wrapper">
+          <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/init.js"></script>
+        <script src="js/products.js"></script>
+      </div>
     </div>
   </div>
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/products.js"></script>
 </body>
 
 </html>

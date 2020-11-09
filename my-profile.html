@@ -9,25 +9,11 @@
   <meta name="description" content="">
   <title>eMercado - Todo lo que busques está aquí</title>
 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
@@ -40,23 +26,48 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      
+
       <div class="dropdown" id="info-user" style="display: none;">
-        <button id="user" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+        <button id="user" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false"></button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
           <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-          <button id="salir" class="dropdown-item" >Salir</button>
+          <button id="salir" class="dropdown-item">Salir</button>
         </div>
       </div>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
+    <h1>Perfil:</h1>
+    <form action="" class="profile" id="needs-validation" novalidate>
+      <div id="profile"></div>
+      <div>
+        <img id="imgProfile" class="imgProfile" src="https://i.ibb.co/9g9vr5h/perfil.jpg" alt="" width="72" height="72"><br>
+        <input id="imgUrl" class="form-control" type="text" placeholder="url para la imagen de perfil" value="">
+      </div>
+
+      <label for="nombres">Nombres:</label>
+      <input type="text" class="form-control" value="" id="nombres" required>
+
+      <label for="apellidos">Apellidos:</label>
+      <input type="text" class="form-control" value="" id="apellidos"required>
+
+      <label for="edad">Edad:</label>
+      <input type="text" class="form-control" value="" id="edad">
+
+      <label for="mail">E-mail:</label>
+      <input type="text" class="form-control" value="" id="mail">
+
+      <label for="tel">Teléfono:</label>
+      <input type="text" class="form-control" value="" id="tel">
       <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+      <button type="submit" id="confirmar" class="btn btn-block btn-success">Confirmar</button>
+
+  </div>
+
+  </form>
+  
+
   </div>
   <footer class="text-muted bg-light">
     <div class="container">
@@ -78,11 +89,29 @@
       <div></div>
     </div>
   </div>
+
+  <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+      let form = document.getElementById('needs-validation');
+      form.addEventListener('submit', function (event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      });
+    });
+
+  </script>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
 </body>
 
 </html>

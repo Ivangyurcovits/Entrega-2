@@ -145,3 +145,8 @@ a.custom-card:hover {
   margin-left: auto;
   margin-right: auto;;
 }
+
+#imgProfile {
+  display:block;
+  margin:auto;
+}
